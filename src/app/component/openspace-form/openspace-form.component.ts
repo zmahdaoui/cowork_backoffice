@@ -1,0 +1,37 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { OpenspaceService } from '../../service/openspace.service';
+import { OpenSpaceReq } from '../../model/openspace-req';
+
+@Component({
+	selector: 'openspace-form',
+	templateUrl: './openspace-form.component.html',
+	//styleUrls: ['./app/pokemons/pokemon-form.component.css']
+})
+export class OpenspaceFormComponent implements OnInit {
+
+    @Input() openspace: OpenSpaceReq;
+
+	constructor(
+		private openspaceService: OpenspaceService,
+		private router: Router) { }
+
+	ngOnInit() {
+	}
+
+	// La méthode appelée lorsque le formulaire est soumis.
+	onSubmit(): void {
+		console.log("Submit form !");
+		this.openspaceService.updateOpenspace(this.openspace)
+			.subscribe(updated => {
+				console.log(updated);
+				if(updated)
+					this.goBack();
+			})
+	}
+
+	goBack(): void {
+		let link = ['/openspace', this.openspace.id];
+		this.router.navigate(link);
+	}
+}

@@ -1,0 +1,30 @@
+<nav>
+    <div class="nav-wrapper teal">
+    <a href="#" class="brand-logo center">cowork Pro</a>
+    </div>
+</nav>
+<div class='row s1'>
+    <div class="container">
+        <div class="card hoverable" style="width: 350px; margin-left: auto; margin-right: auto;">
+            <div class="card-content center">
+                <span class="card-title">Page de connexion</span>
+                <p><em>{{message}}</em></p>
+            </div>
+            <form #loginForm="ngForm">
+                <div>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" [(ngModel)]="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" [(ngModel)]="password" name="password" required>
+                </div>
+            </form>
+            <div class="card-action center">
+                <a (click)="login()" class="waves-effect waves-light btn"  >Se connecter</a>
+            </div>
+        </div>
+    <div class="container">
+    </div>
+</div>
+
