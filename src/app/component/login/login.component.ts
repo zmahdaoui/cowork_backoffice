@@ -67,8 +67,6 @@ export class LoginComponent {
 		
 		this.authService.createUser(this.user)
 			.subscribe(user => {
-				console.log("login component");
-				console.log(user);
 				if(user.status == 0){
 					this.message = 'identifiant ou mot de passe incorrect.'	
 				}

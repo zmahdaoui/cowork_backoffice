@@ -58,8 +58,6 @@ export class AuthService {
 		const url = `${this.basesUrl}/users/create`;
 		return this.http.post<any>(url,user)
 			.pipe(map((x: any) => {
-				console.log("dans create user")
-				console.log(x);
 				let loginResult;
 				if(x.status == 1){
 					localStorage.setItem('token',x.result.token);

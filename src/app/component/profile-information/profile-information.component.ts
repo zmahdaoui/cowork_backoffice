@@ -31,11 +31,9 @@ export class ProfileInformationComponent {
         this.userService.getUser()
 			.subscribe(user => {
 				this.User = user;
-				let today = new Date()
-				console.log("birthday",this.User.birthday)
+				let today = new Date();
 				let birthday = date.parse(this.User.birthday,'YYYY/MM/DD HH:mm:SS');
 				this.age = date.subtract(today, birthday).toDays();
-				console.log(this.age);
 				this.age = this.age/365;
 				this.age = Math.floor(this.age);
 			});

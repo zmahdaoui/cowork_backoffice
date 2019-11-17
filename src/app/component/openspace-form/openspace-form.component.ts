@@ -21,10 +21,8 @@ export class OpenspaceFormComponent implements OnInit {
 
 	// La méthode appelée lorsque le formulaire est soumis.
 	onSubmit(): void {
-		console.log("Submit form !");
 		this.openspaceService.updateOpenspace(this.openspace)
 			.subscribe(updated => {
-				console.log(updated);
 				if(updated)
 					this.goBack();
 			})

@@ -17,7 +17,6 @@ export class OpenspaceListComponent {
 
 	ngOnInit(){
 		if(this.helper.isTokenExpired(localStorage.getItem('token'))){
-			console.log('expired')
 			localStorage.clear()
 			this.router.navigateByUrl('login')
 		}

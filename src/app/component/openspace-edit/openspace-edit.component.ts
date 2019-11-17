@@ -26,14 +26,14 @@ export class EditOpenspaceComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.helper.isTokenExpired(localStorage.getItem('token'))){
-			console.log('expired')
 			localStorage.clear()
 			this.router.navigateByUrl('login')
 		}
     let id = +this.route.snapshot.params['id'];
 		this.openSpaceService.getOpenspace(id)
 			.subscribe(openspace => {
-        this.openspace = new OpenSpaceReq(openspace.id,openspace.location,
+        this.openspace = new OpenSpaceReq(openspace.id,
+                                          openspace.location,
                                           openspace.wifi,
                                           openspace.drink,
                                           openspace.plateau_repas,
