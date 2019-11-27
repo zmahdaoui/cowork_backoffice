@@ -1,0 +1,25 @@
+<div class="card hoverable">
+    <table cellpadding="1" cellspacing="1" class="table table-hover" id="myTable">
+        <thead>
+            <tr>
+                <th>Site</th>
+                <th>Date de commande</th>
+                <th>Heure de commande</th>
+                <th>Quantité</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let order of orders | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize '>
+                <td>{{order.location}}</td>
+                <td>{{order.date_order}}</td>
+                <td>{{order.time}}</td>
+                <td>{{order.count}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf='orders.length == 0 ' style="margin-left: auto;margin-right: auto;">
+        <span>
+            <p>pas de commande pour aujourd'hui</p>
+        </span>
+    </div>
+</div>

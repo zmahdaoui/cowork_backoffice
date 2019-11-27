@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   `,
 })
 export class EditOpenspaceComponent implements OnInit {
-
+  id: number = null;
   openspace: OpenSpaceReq = null;
 	helper = new JwtHelperService();
 
@@ -29,8 +29,8 @@ export class EditOpenspaceComponent implements OnInit {
 			localStorage.clear()
 			this.router.navigateByUrl('login')
 		}
-    let id = +this.route.snapshot.params['id'];
-		this.openSpaceService.getOpenspace(id)
+    this.id = +this.route.snapshot.params['id'];
+		this.openSpaceService.getOpenspace(this.id)
 			.subscribe(openspace => {
         this.openspace = new OpenSpaceReq(openspace.id,
                                           openspace.location,

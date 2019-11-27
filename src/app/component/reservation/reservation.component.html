@@ -1,0 +1,41 @@
+<div class="card hoverable">
+    <table cellpadding="1" cellspacing="1" class="table table-hover" id="myTableReservation">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Date de reservation</th>
+                <th>Numéro salle/matériel</th>
+                <th>Email</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let reservation of reservations | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize '>
+                <ng-container *ngIf='reservation.type == "conf_room"'>
+                    <td>{{'salle de réunion'}}</td>
+                </ng-container>
+                <ng-container *ngIf='reservation.type == "call_room"'>
+                    <td>{{"salle d'appel"}}</td>
+                </ng-container>
+                <ng-container *ngIf='reservation.type == "laptop"'>
+                    <td>{{'ordinateur portable'}}</td>
+                </ng-container>
+                <td>{{reservation.start}}</td>
+                <td>{{reservation.end}}</td>
+                <td>{{reservation.date_res}}</td>
+                <td>{{reservation.number}}</td>
+                <td>{{reservation.email}}</td>
+                <td>{{reservation.first_name}}</td>
+                <td>{{reservation.last_name}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf='reservations.length == 0 ' style="margin-left: auto;margin-right: auto;">
+        <span>
+            <p>pas de réservation pour aujourd'hui</p>
+        </span>
+    </div>
+</div>

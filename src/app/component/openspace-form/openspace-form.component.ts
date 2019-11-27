@@ -5,8 +5,7 @@ import { OpenSpaceReq } from '../../model/openspace-req';
 
 @Component({
 	selector: 'openspace-form',
-	templateUrl: './openspace-form.component.html',
-	//styleUrls: ['./app/pokemons/pokemon-form.component.css']
+	templateUrl: './openspace-form.component.html'
 })
 export class OpenspaceFormComponent implements OnInit {
 

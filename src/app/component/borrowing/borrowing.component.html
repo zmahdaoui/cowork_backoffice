@@ -1,0 +1,41 @@
+<div class="card hoverable">
+    <table cellpadding="1" cellspacing="1" class="table table-hover" id="myTableBorrowing">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Date de reservation</th>
+                <th>Numéro salle/matériel</th>
+                <th>Email</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let borrowing of borrowings | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize '>
+                <ng-container *ngIf='borrowing.type == "conf_room"'>
+                    <td>{{'salle de réunion'}}</td>
+                </ng-container>
+                <ng-container *ngIf='borrowing.type == "call_room"'>
+                    <td>{{"salle d'appel"}}</td>
+                </ng-container>
+                <ng-container *ngIf='borrowing.type == "laptop"'>
+                    <td>{{'ordinateur portable'}}</td>
+                </ng-container>
+                <td>{{borrowing.start}}</td>
+                <td>{{borrowing.end}}</td>
+                <td>{{borrowing.date_res}}</td>
+                <td>{{borrowing.number}}</td>
+                <td>{{borrowing.email}}</td>
+                <td>{{borrowing.first_name}}</td>
+                <td>{{borrowing.last_name}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf='borrowings.length == 0 ' style="margin-left: auto;margin-right: auto;">
+        <span>
+            <p>pas de prêt pour aujourd'hui</p>
+        </span>
+    </div>
+</div>
