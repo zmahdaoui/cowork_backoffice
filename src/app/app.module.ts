@@ -16,6 +16,7 @@ import { OpenspaceCreateComponent } from './component/openspace-create/openspace
 import { ReservationComponent } from './component/reservation/reservation.component';
 import { OrderComponent } from './component/order/order.component';
 import { BorrowingComponent } from './component/borrowing/borrowing.component';
+import { CreateUserComponent } from './component/create-user/create_user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -50,6 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       OpenspaceDetailComponent,
       EditOpenspaceComponent,
       OpenspaceFormComponent,
+      CreateUserComponent,
       BorderOpenspaceDirective,
       OpenspaceCreateComponent,
       ReservationComponent,

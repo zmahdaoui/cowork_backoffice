@@ -54,21 +54,4 @@ export class AuthService {
 		this.isLoggedIn = false;
 	}
 
-	createUser(user: User):Observable<any>{
-		const url = `${this.basesUrl}/users/create`;
-		return this.http.post<any>(url,user)
-			.pipe(map((x: any) => {
-				let loginResult;
-				if(x.status == 1){
-					localStorage.setItem('token',x.result.token);
-					let user = new User(x.result.logger.id, x.result.logger.first_name, x.result.logger.last_name, x.result.logger.email, x.result.logger.password, x.result.logger.password, x.result.logger.birthday, x.result.logger.date_inscription, x.result.logger.client);
-					loginResult = new LoginResponse(x.status, user,x.message);
-					this.isLoggedIn = true;
-				}else{
-					loginResult	= new LoginResponse(x.status, null,x.message);
-					this.isLoggedIn = false;
-				}
-				return loginResult;
-			}))
-	}
 }

@@ -10,7 +10,8 @@ import { AuthService } from '../../service/auth.service';
                 <div class="nav-wrapper teal">
                 <a href="#" class="brand-logo left" >cowork pro</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a (click)="navigateToCreateOpenspace()">créer openspace</a></li>
+                    <li><a (click)="navigateToCreateOpenspace()">créer openspace</a></li>
+                    <li><a (click)="navigateToCreateUserPro()">créer un compte</a></li>
                     <li><a (click)="navigateToLogin()">log out</a></li>
                 </ul>
                 </div>
@@ -31,6 +32,10 @@ export class NavBarComponent {
 
     navigateToCreateOpenspace(){
         this.router.navigateByUrl('openspace/create');
+    }
+
+    navigateToCreateUserPro(){
+        this.router.navigateByUrl('create/pro');
     }
 
 }

@@ -7,12 +7,14 @@ import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './auth-guard.service';
 import { OpenspaceDetailComponent } from './component/openspace-detail/openspace-detail.component';
 import { OpenspaceCreateComponent } from './component/openspace-create/openspace-create.component';
+import { CreateUserComponent } from './component/create-user/create_user.component';
 
 
 // routes
 const appRoutes: Routes = [
 	{ path: '', redirectTo: 'login', pathMatch: 'full' },
 	{ path: 'login', component: LoginComponent},
+	{ path: 'create/pro', component: CreateUserComponent, canActivate:[AuthGuard]},
 	{ path: 'openspace/list', component: OpenspaceListComponent, canActivate:[AuthGuard]},
 	{ path: 'openspace/create', component: OpenspaceCreateComponent, canActivate:[AuthGuard]},
 	{ path: 'openspace/edit/:id', component: EditOpenspaceComponent, canActivate:[AuthGuard]},
